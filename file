@@ -1,0 +1,32 @@
+const fs = require('fs');
+const readline = require('node:readline');
+
+let filenames
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  const q1 = (() =>{rl.question("Folder directory?: ", (dir) =>{
+      filenames = fs.readdirSync(dir)
+      q2()
+    })
+  })()
+
+
+  const q2 = () => {rl.question("Cover directory?: ", (dir) =>{
+    for(let i = 1; i < filenames.length; i++){
+        fs.copyFile(dir, `C:/Program Files (x86)/Steam/steamapps/workshop/content/108600/2613146550/mods/TrueMusic/media/yourMusic/TCVinylplayer/${filenames[i].replace('.mp3','')}.jpg`,(err)=>{})
+      }
+      rl.close()
+      return
+    }
+  )}
+
+
+
+
+
+
+
